@@ -1,5 +1,7 @@
 package uvg;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,18 +9,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args ) throws FileNotFoundException, IOException
-    {
+import org.junit.Test;
+
+public class MaperTest {
+        @Test
+     public void readLines() throws FileNotFoundException, IOException {
         FileManager a = new FileManager();
         ArrayList<String> L = a.readTXTFile("/cards_desc.txt");
 
-        Map<String, String> maperTest = Maper.GenerateDeck(L, "");
+        String[] arr = {" Altergeist Pixiel", "\"A\" Cell Breeding Device", "\"A\" Cell Incubator", "\"A\" Cell Recombination Device", "\"A\" Cell Scatter Burst"};
+
+        Map<String, String> maperTest = Maper.GenerateDeck(L, "Hash");
         
         Map<String, String> expectedMap = new HashMap<String, String>();
 
@@ -28,7 +29,12 @@ public class App
         expectedMap.put("\"A\" Cell Recombination Device", "Hechizo");
         expectedMap.put("\"A\" Cell Scatter Burst", "Hechizo");
         
-        System.out.println("");
+        for (int i = 0; i<5 ; i++){
+            assertEquals(expectedMap.get(arr[i]), maperTest.get(arr[i]));
+        }
         
-    }
+       
+        
+          
+     }
 }
