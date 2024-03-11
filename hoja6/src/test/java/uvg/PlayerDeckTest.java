@@ -43,7 +43,7 @@ public class PlayerDeckTest {
       *                               description: show players deck in order
       */
      @Test
-     public void showDeckTest() throws FileNotFoundException, IOException {
+     public void showOrederDeckTest() throws FileNotFoundException, IOException {
           ArrayList<String> plDeck = new ArrayList<>();
           plDeck.add("7 Colored Fish|Monstruo");
           plDeck.add("A Deal with Dark Ruler|Hechizo");
@@ -51,10 +51,12 @@ public class PlayerDeckTest {
           plDeck.add("A Man with Wdjat|Monstruo");
           PlayerDeck player = new PlayerDeck("Hash");
           player.addCard("7 Colored Fish", "Monstruo");
+          player.addCard("A Deal with Dark Ruler", "Hechizo");
+          player.addCard("A Wild Monster Appears!", "Hechizo");
           player.addCard("A Man with Wdjat", "Monstruo");
 
 
-          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\nCarta: A Man with Wdjat Tipo: Monstruo\n",
-                    player.showDeck("Monstruo"));
+          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\nCarta: A Man with Wdjat Tipo: Monstruo\nCarta: A Deal with Dark Ruler Tipo: Hechizo\nCarta: A Wild Monster Appears! Tipo: Hechizo",
+                    player.showOrderDeck());
      }
 }
