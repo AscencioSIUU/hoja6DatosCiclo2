@@ -16,27 +16,31 @@ public class PlayerDeckTest {
      public void addCardTest() throws FileNotFoundException, IOException {
           ArrayList<String> plDeck = new ArrayList<>();
           plDeck.add("7 Colored Fish|Monstruo");
-          PlayerDeck player = new PlayerDeck(plDeck, "Hash");
-          player.addCard("A Deal with Dark Ruler", "Hechizo");
-          assertEquals("Carta: A Deal with Dark Ruler Tipo: Hechizo\nCarta: 7 Colored Fish Tipo: Monstruo\n", player.showPlayerDeck());
+          PlayerDeck player = new PlayerDeck("Hash");
+          player.addCard("7 Colored Fish", "Monstruo");
+          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\n",
+                    player.showPlayerDeck());
 
      }
+
      /**
       * @throws FileNotFoundException
       * @throws IOException
-      Description: show the deck of the player
+      *                               Description: show the deck of the player
       */
      @Test
      public void showPlayerDeckTest() throws FileNotFoundException, IOException {
           ArrayList<String> plDeck = new ArrayList<>();
           plDeck.add("7 Colored Fish|Monstruo");
-          PlayerDeck player = new PlayerDeck(plDeck, "Hash");
-          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\n",player.showPlayerDeck());
+          PlayerDeck player = new PlayerDeck("Hash");
+          player.addCard("7 Colored Fish", "Monstruo");
+          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\n", player.showPlayerDeck());
      }
+
      /**
       * @throws FileNotFoundException
       * @throws IOException
-      description: show players deck in order
+      *                               description: show players deck in order
       */
      @Test
      public void showDeckTest() throws FileNotFoundException, IOException {
@@ -45,7 +49,12 @@ public class PlayerDeckTest {
           plDeck.add("A Deal with Dark Ruler|Hechizo");
           plDeck.add("A Wild Monster Appears!|Hechizo");
           plDeck.add("A Man with Wdjat|Monstruo");
-          PlayerDeck player = new PlayerDeck(plDeck, "Hash");
-          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\nCarta: A Man with Wdjat Tipo: Monstruo\n",player.showDeck("Monstruo"));
+          PlayerDeck player = new PlayerDeck("Hash");
+          player.addCard("7 Colored Fish", "Monstruo");
+          player.addCard("A Man with Wdjat", "Monstruo");
+
+
+          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\nCarta: A Man with Wdjat Tipo: Monstruo\n",
+                    player.showDeck("Monstruo"));
      }
 }
