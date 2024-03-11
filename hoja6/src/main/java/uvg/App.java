@@ -15,6 +15,19 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException, IOException
     {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ingrese el sistema a ejecutar");
+        System.out.println("1. Menu de usuario \n 2. Prueba de Profiler");
+        String menu = scan.nextLine();
+        
+        if(menu.equals("1")){
+            MenuMode();
+        }else if(menu.equals("2")){
+            ProfilingMode();
+        }else{
+            System.out.println("Esa opción no existe");
+        }
 
         
 
@@ -34,6 +47,20 @@ public class App
         
         System.out.println("");
         */
+    }
+
+    public static void ProfilingMode() throws FileNotFoundException, IOException{
+        FileManager a = new FileManager();
+        ArrayList<String> L = a.readTXTFile("/cards_desc.txt");
+
+        ArrayList<String> hashTimes = Maper.ProfilingGenerateDeck(L, "Hash");
+        ArrayList<String> treeTimes = Maper.ProfilingGenerateDeck(L, "Tree");
+        ArrayList<String> linkedTimes = Maper.ProfilingGenerateDeck(L, "LinkedHash");
+
+        a.exportCSVFile(hashTimes, "hashTimes.csv");
+        a.exportCSVFile(treeTimes, "treeTimes.csv");
+        a.exportCSVFile(linkedTimes, "linkedTimes.csv");
+
     }
 
     public static void MenuMode() throws FileNotFoundException, IOException{
@@ -71,9 +98,6 @@ public class App
                 System.out.println("Hemos implementado LinkedHashMap en las barajas, FELIZ JUEGO");
                 break;
         }
-
-
-
         while(program){
 
            

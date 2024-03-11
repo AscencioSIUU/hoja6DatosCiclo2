@@ -1,9 +1,11 @@
 package uvg;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class FileManager {
@@ -26,5 +28,14 @@ public class FileManager {
         reader.close();
         return arrayList;
         
+    }
+
+    public void exportCSVFile(ArrayList<String> arr, String name) throws FileNotFoundException{
+        File csvFile = new File(name);
+        PrintWriter printWriter = new PrintWriter(csvFile);
+
+        for(int i = 0; i < arr.size(); i++){
+            printWriter.printf("%d, %s\n", i + 1, arr.get(i));
+        }
     }
 }
