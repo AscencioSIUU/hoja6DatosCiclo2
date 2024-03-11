@@ -51,13 +51,4 @@ public class PlayerDeck {
           return allDecks.toString();
      }
 
-     public static void main(String[] args) {
-          PlayerDeck player = new PlayerDeck("Hash");
-          player.addCard("7 Colored Fish", "Monstruo");
-          player.addCard("A Deal with Dark Ruler", "Hechizo");
-          player.addCard("A Wild Monster Appears!", "Hechizo");
-          player.addCard("A Man with Wdjat", "Monstruo");
-          System.out.println(player.showOrderDeck());
-     }
-
 }

@@ -56,7 +56,7 @@ public class PlayerDeckTest {
           player.addCard("A Man with Wdjat", "Monstruo");
 
 
-          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\nCarta: A Man with Wdjat Tipo: Monstruo\nCarta: A Deal with Dark Ruler Tipo: Hechizo\nCarta: A Wild Monster Appears! Tipo: Hechizo",
+          assertEquals("Carta: 7 Colored Fish Tipo: Monstruo\nCarta: A Man with Wdjat Tipo: Monstruo\nCarta: A Deal with Dark Ruler Tipo: Hechizo\nCarta: A Wild Monster Appears! Tipo: Hechizo\n",
                     player.showOrderDeck());
      }
 }
