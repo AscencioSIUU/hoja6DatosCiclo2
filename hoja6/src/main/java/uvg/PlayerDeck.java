@@ -6,8 +6,9 @@ import java.util.Map;
 public class PlayerDeck {
      private Map<String, String> playerDeck;
 
-     public PlayerDeck(ArrayList<String> arr, String mapType) {
-          playerDeck = Maper.GenerateDeck(arr, mapType);
+     public PlayerDeck(String mapType) {
+          MapFactory<String, String> mapFactory = new MapFactory<String, String>();
+          playerDeck = mapFactory.create(mapType);
      }
 
      public void addCard(String cardName, String cardType){
